@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  api:
+    build: ../api
+    container_name: api
+    ports:
+      - "3000:3000"
+  website:
+    build: ../website
+    container_name: websites
+    ports: 
+      - "8080:80"
