@@ -1,19 +1,39 @@
 version: "3.9"
 services:
+  attacker:
+    image: kalilinux/kali-rolling
+    command: apt-get update && apt-get install metasploit-framework && sudo service postgresql start && sudo msfdb init && tail -f /dev/null
+    container_name: attacker
+    networks:
+      - public
+  metasploitable:
+    build: ../metasploitable
+    image: ais_metasploitable:latest
+    container_name: metasploitable
+    networks:
+      - backend-services
+    command: tail -f /dev/null
   api:
     build: ../api
+    image: ais_api:latest
     container_name: api
     expose:
       - "3000"
     networks:
-      - my-net
+      - calculator
   website:
     build: ../website
+    image: ais_website:latest
     container_name: website
     ports: 
       - "8080:80"
     networks:
-      - my-net
+      - calculator
+      - public
 networks:
-  my-net:
+  calculator:
+    driver: bridge
+  backend-services:
+    driver: bridge
+  public:
     driver: bridge
