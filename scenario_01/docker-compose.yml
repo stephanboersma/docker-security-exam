@@ -2,7 +2,7 @@ version: "3.9"
 services:
   attacker:
     image: kalilinux/kali-rolling
-    command: apt-get update && apt-get install metasploit-framework && sudo service postgresql start && sudo msfdb init && tail -f /dev/null #Install metasploit and start services
+    command: tail -f /dev/null # Command to keep the container running after setup is finished
     container_name: attacker
     networks:
       - public
