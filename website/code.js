@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:3000/calculate"
+const url = "http://127.0.0.1:8080/calculate"
 document.getElementById("button").addEventListener("click",(e) => {
     var inputValue = document.getElementById("expression").value;
     calculateExpression(inputValue)

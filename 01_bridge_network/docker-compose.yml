@@ -3,10 +3,17 @@ services:
   api:
     build: ../api
     container_name: api
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
+    networks:
+      - my-net
   website:
     build: ../website
-    container_name: websites
+    container_name: website
     ports: 
       - "8080:80"
+    networks:
+      - my-net
+networks:
+  my-net:
+    driver: bridge
