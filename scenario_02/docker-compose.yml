@@ -22,7 +22,6 @@ services:
       - "3000"
     networks:
       - calculator
-      - backend-services
   website:
     build: ../website
     image: ais_website:latest
@@ -36,6 +35,6 @@ networks:
   calculator:
     driver: bridge # Represents a seperate network for a service. In this case a calculator
   backend-services:
-    driver: bridge # Represents a hypothetical network that contains a range of backend services
+    driver: bridge # Represents a hypothetical network that contains a range of back-end services
   public:
     driver: bridge # Represents public access
