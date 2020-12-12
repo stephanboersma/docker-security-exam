@@ -2,7 +2,7 @@ version: "3.9"
 services:
   attacker:
     image: kalilinux/kali-rolling
-    command: apt-get update && apt-get install metasploit-framework && sudo service postgresql start && sudo msfdb init && tail -f /dev/null
+    command: apt-get update && apt-get install metasploit-framework && sudo service postgresql start && sudo msfdb init && tail -f /dev/null #Install metasploit and start services
     container_name: attacker
     networks:
       - public
@@ -11,8 +11,9 @@ services:
     image: ais_metasploitable:latest
     container_name: metasploitable
     networks:
+      - public
       - backend-services
-    command: tail -f /dev/null
+    command: tail -f /dev/null # Command to keep the container running after setup is finished
   api:
     build: ../api
     image: ais_api:latest
@@ -21,6 +22,7 @@ services:
       - "3000"
     networks:
       - calculator
+      - backend-services
   website:
     build: ../website
     image: ais_website:latest
@@ -32,8 +34,8 @@ services:
       - public
 networks:
   calculator:
-    driver: bridge
+    driver: bridge # Represents a seperate network for a service. In this case a calculator
   backend-services:
-    driver: bridge
+    driver: bridge # Represents a hypothetical network that contains a range of backend services
   public:
-    driver: bridge
+    driver: bridge # Represents public access

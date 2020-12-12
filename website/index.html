@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Website</title>
     <style>
         html body {
@@ -13,6 +14,7 @@
             margin: 0;
             background-color: #1d2951;
         }
+
         .wrapper {
             display: flex;
             flex-direction: column;
@@ -21,55 +23,59 @@
             flex: 1;
             height: 100vh
         }
+
         .form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             flex: 0;
         }
+
         .form span {
             font-size: 16px;
             color: green;
         }
 
-.form__input {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-	margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-}
-.button {
-    margin-top: 1em;
-  background-color: grey; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
+        .form__input {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            border-radius: 0.2rem;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            display: block;
+            border-bottom: 0.3rem solid transparent;
+            transition: all 0.3s;
+        }
 
-
+        .button {
+            margin-top: 1em;
+            background-color: grey;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
     </style>
-		
+
 </head>
+
 <body>
     <div class="wrapper">
         <div class="form">
             <span id="result"></span>
             <input type="text" class="form__input" id="expression" placeholder="Input math expression" required="" />
             <button id="button" class="button">Calculate</button>
-          </div>
+        </div>
     </div>
-	<script src="code.js"></script>
+    <script src="code.js"></script>
 
 </body>
+
 </html>
