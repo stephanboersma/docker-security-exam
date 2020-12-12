@@ -1,3 +1,4 @@
+# Base image
 FROM node:12
 
 # Create app directory
@@ -9,10 +10,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
+# Init node.js server
 CMD [ "node", "index.js" ]
