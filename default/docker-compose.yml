@@ -3,21 +3,21 @@ services:
   attacker:
     image: kalilinux/kali-rolling
     command: tail -f /dev/null # Command to keep the container running after setup is finished
-    container_name: attacker
+    container_name: attacker_default
   metasploitable:
     build: ../metasploitable
     image: ais_metasploitable:latest
-    container_name: metasploitable
+    container_name: metasploitable_default
     command: tail -f /dev/null # Command to keep the container running after setup is finished
   api:
     build: ../api
     image: ais_api:latest
-    container_name: api
+    container_name: api_default
     expose:
       - "3000"
   website:
     build: ../website
     image: ais_website:latest
-    container_name: website
+    container_name: website_default
     ports: 
       - "8080:80"

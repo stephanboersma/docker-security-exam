@@ -3,13 +3,13 @@ services:
   attacker:
     image: kalilinux/kali-rolling
     command: tail -f /dev/null # Command to keep the container running after setup is finished
-    container_name: attacker
+    container_name: attacker_scenario2
     networks:
       - public
   metasploitable:
     build: ../metasploitable
     image: ais_metasploitable:latest
-    container_name: metasploitable
+    container_name: metasploitable_scenario2
     networks:
       - public
       - backend-services
@@ -17,7 +17,7 @@ services:
   api:
     build: ../api
     image: ais_api:latest
-    container_name: api
+    container_name: api_scenario2
     expose:
       - "3000"
     networks:
@@ -25,7 +25,7 @@ services:
   website:
     build: ../website
     image: ais_website:latest
-    container_name: website
+    container_name: website_scenario2
     ports: 
       - "8080:80"
     networks:
