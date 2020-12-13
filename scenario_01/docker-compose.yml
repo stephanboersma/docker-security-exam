@@ -31,7 +31,6 @@ services:
       - "8080:80"
     networks:
       - calculator
-      - public
 networks:
   calculator:
     driver: bridge # Represents a seperate network for a service. In this case a calculator

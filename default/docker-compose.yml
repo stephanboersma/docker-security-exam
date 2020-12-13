@@ -4,15 +4,10 @@ services:
     image: kalilinux/kali-rolling
     command: tail -f /dev/null # Command to keep the container running after setup is finished
     container_name: attacker
-    networks:
-      - public
   metasploitable:
     build: ../metasploitable
     image: ais_metasploitable:latest
     container_name: metasploitable
-    networks:
-      - public
-      - backend-services
     command: tail -f /dev/null # Command to keep the container running after setup is finished
   api:
     build: ../api
@@ -20,20 +15,9 @@ services:
     container_name: api
     expose:
       - "3000"
-    networks:
-      - calculator
   website:
     build: ../website
     image: ais_website:latest
     container_name: website
     ports: 
       - "8080:80"
-    networks:
-      - calculator
-networks:
-  calculator:
-    driver: bridge # Represents a seperate network for a service. In this case a calculator
-  backend-services:
-    driver: bridge # Represents a hypothetical network that contains a range of back-end services
-  public:
-    driver: bridge # Represents public access
